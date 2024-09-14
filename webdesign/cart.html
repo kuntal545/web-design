@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="cart-container">
+        <h1>Shopping Cart</h1>
+        <div class="cart-items">
+            <div class="cart-item">
+                <img src="shoepic/Air Jordern.jpg" alt="Product 1">
+                <div class="item-details">
+                    <h2>Product 1</h2>
+                    <p>$10.00</p>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-btn">-</button>
+                    <input type="text" value="1" class="quantity-input">
+                    <button class="quantity-btn">+</button>
+                </div>
+                <div class="item-total">
+                    <p>$10.00</p>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <img src="shoepic/women anklet.jpeg" alt="Product 2">
+                <div class="item-details">
+                    <h2>Product 2</h2>
+                    <p>$20.00</p>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-btn">-</button>
+                    <input type="text" value="1" class="quantity-input">
+                    <button class="quantity-btn">+</button>
+                </div>
+                <div class="item-total">
+                    <p>$20.00</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <h2>Cart Summary</h2>
+            <p>Total: $30.00</p>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const quantityInputs = document.querySelectorAll('.quantity-input');
+    const quantityBtns = document.querySelectorAll('.quantity-btn');
+    const itemTotals = document.querySelectorAll('.item-total p');
+    const cartSummaryTotal = document.querySelector('.cart-summary p');
+
+    // Function to update the item total and cart summary total
+    function updateCart() {
+        let total = 0;
+
+        document.querySelectorAll('.cart-item').forEach((item, index) => {
+            const price = parseFloat(item.querySelector('.item-details p').textContent.replace('$', ''));
+            const quantity = parseInt(item.querySelector('.quantity-input').value);
+            const itemTotal = price * quantity;
+
+            itemTotals[index].textContent = `$${itemTotal.toFixed(2)}`;
+            total += itemTotal;
+        });
+
+        cartSummaryTotal.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    // Event listeners for quantity buttons
+    quantityBtns.forEach((btn) => {
+        btn.addEventListener('click', function() {
+            const input = this.parentNode.querySelector('.quantity-input');
+            let quantity = parseInt(input.value);
+
+            if (this.textContent === '+') {
+                quantity++;
+            } else if (this.textContent === '-' && quantity > 1) {
+                quantity--;
+            }
+
+            input.value = quantity;
+            updateCart();
+        });
+    });
+
+    // Event listeners for direct input changes
+    quantityInputs.forEach((input) => {
+        input.addEventListener('change', function() {
+            let quantity = parseInt(this.value);
+            if (isNaN(quantity) || quantity < 1) {
+                this.value = 1;
+            }
+            updateCart();
+        });
+    });
+
+    // Initial cart update
+    updateCart();
+});
+
+    </script>
+</body>
+</html>
+

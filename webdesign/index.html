@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shoe Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+   <div class="main-container">
+    <div class="navbar">
+        <a href="#" class="logo">
+            <img src=log.png alt="">
+            <h1 style="color: rgb(240, 255, 255);">NIKE</h1>
+            
+        <a>
+           
+        <ul id="SideMenu">
+            <li><a href="" class="active">Menu</a></li>
+            <li><a href="">Location</a></li>
+            <li><a href="contact.html">About</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+
+       <div class="nav-btn">
+          <button class="login-btn">
+              
+              <a href="login.html">Login</a>
+          </button>
+          <button id="toggleBtn" class="toggle-btn">
+            <img src="bar-icon.svg" alt=""/>
+          </button>
+        
+       </div>
+
+    </div>
+
+  <div class="bottom-content">
+        <div class="bottom-left">
+            <h1>Your feet deserve the best</h1>
+            <p>"Welcome to our shoe store! <br>Log in to access exclusive styles and offers."</p>
+            <div class="btn-sec">
+              <a href="shop.html">  <button>Shop Now</button></a>
+               
+                <button>Category</button>
+            </div>
+
+        </div>
+        <div class="bottom-right">
+            <img src="bg-effact.png" alt="" class="bg-effact"/>
+            <img src="sh (2).png" alt="" class="shoes-img"/>
+        </div>
+    </div>
+
+   </div>
+
+<script>
+    var toggleBtn = document.getElementById("toggleBtn");
+    var SideMenu = document.getElementById("SideMenu");
+    var loginBtn = document.getElementById("loginBtn");
+    var loginForm = document.getElementById("loginForm");
+
+    toggleBtn.addEventListener('click', () => {
+        SideMenu.classList.toggle('active');
+    });
+
+    // Show the login form when login button is clicked
+    loginBtn.addEventListener('click', () => {
+        e.preventDefault();
+        loginForm.style.display = "block";
+        console.log("Login button clicked, form displayed");
+    });
+   
+        
+    var submitBtn = document.getElementById("submitBtn");
+    submitBtn.addEventListener('click', () => {
+        console.log("Submit button clicked");
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    // Basic check - replace with actual validation logic
+    if(username === "user" && password === "password"){
+        alert("Login successful!");
+        loginForm.style.display = "block";
+       
+    } else {
+        alert("Invalid credentials, please try again.");
+    }
+});
+
+
+</script>
+
+</body>
+</html>
