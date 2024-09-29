@@ -52,10 +52,17 @@ nav ul li {
 }
 
 .gameContainer{
-   background-color: ;
+  
    display: flex;
    margin-top: 50px;
    justify-content: center;
+  
+}
+//add
+.in{
+  display: flex;
+  margin-top: 30px;
+  
   
 }
 .container{
@@ -81,6 +88,7 @@ font-family: "Indie Flower", cursive;
 .gameInfo{
 padding: 0 34px;
 font-size: 1rem;
+
 
 }
 .imgbox img{
@@ -229,10 +237,12 @@ font-size: 1rem;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
+  margin-top: 10px;
 }
 
 #aiMode:hover {
   background-color: #ff7426;
 }
+
 
 
