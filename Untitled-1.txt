@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Form</title>
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #f4f4f4; /* Solid background color */
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 950px;
+      margin: 80px auto;
+      color: black;
+      line-height: 1.5;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .content {
+      display: flex;
+      margin-top: 40px;
+    }
+
+    .icon {
+      background-color: white;
+      border-radius: 30px;
+      padding: 15px;
+      vertical-align: top;
+    }
+
+    .contact-info {
+      display: inline-block;
+      padding: 4px 20px 0px 20px;
+    }
+
+    .address-line {
+      margin-top: 40px;
+    }
+
+    .col-1 {
+      width: 530px;
+    }
+
+    .col-2 {
+      flex: 1 1 auto;
+      background-color: white;
+    }
+
+    .form-container {
+      color: #000;
+      padding: 30px;
+    }
+
+    .contact-info-title {
+      color: #01bdd4;
+    }
+
+    .form-row {
+      padding-bottom: 30px;
+    }
+
+    .form-field {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #000;
+    }
+
+    .send-btn {
+      border: 0px;
+      padding: 12px 26px;
+      background-color: #01bdd4;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media all and (max-width: 1024px) {
+      .container {
+        width: auto;
+        padding: 30px;
+      }
+      .col-1 {
+        width: 360px;
+      }
+    }
+
+    @media all and (max-width: 700px) {
+      .content {
+        display: block;
+      }
+      .col-2 {
+        margin-top: 40px;
+      }
+      .col-1 {
+        width: 100%;
+      }
+    }
+
+    @media all and (max-width: 500px) {
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text-center">
+      <h1></h1>
+      <div>I am pursuing my B.SC in Information Technology from Global Institute Of Science And Technology, with a strong foundation in Front-End Development.
+         Passionate about user-friendly web applications. Skilled in web design and interface development. I am also familiar with HTML ,CSS ,JavaScript. 
+
+      </div>
+    </div>
+    <div class="content">
+      <div class="col-1">
+        <div class="address-line">
+          <div class="contact-info">
+            <div class="contact-info-title">Address</div>
+            <div>Haldia,Manjushri</div>
+            <div>Purba Medinipur, West Bengal,</div>
+            <div>721602.</div>
+          </div>
+        </div>
+        <div class="address-line">
+          <img src="" alt="">
+          <div class="contact-info">
+            <div class="contact-info-title">Phone</div>
+            <div>+91 8637861918.</div>
+          </div>
+        </div>
+        <div class="address-line">
+          <img alt="">
+          <div class="contact-info">
+            <div class="contact-info-title">Email</div>
+            <div><a href="mailto:kuntalbej@gmail.com">kuntalbej@gmail.com</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <form action="mailto:kuntalbej@gmail.com" method="POST" enctype="text/plain">
+          <div class="form-container">
+            <h2>Send Message</h2>
+            <div class="form-row">
+              <label>Full Name</label>
+              <div>
+                <input type="text" name="name" class="form-field" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <label>Email</label>
+              <div>
+                <input type="email" name="email" class="form-field" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <label>Type your message...</label>
+              <div>
+                <textarea name="message" class="form-field" rows="4" required></textarea>
+              </div>
+            </div>
+            <input type="submit" class="send-btn" value="Send">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

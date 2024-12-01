@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linked Dropdowns</title>
+</head>
+<body>
+
+  <!-- First Dropdown -->
+  <label for="dropdown1">Select a Category:</label>
+  <select id="dropdown1" onchange="updateSecondDropdown()">
+    <option value="">--Select--</option>
+    <option value="fruits">Fruits</option>
+    <option value="vegetables">Vegetables</option>
+  </select>
+
+  <!-- Second Dropdown -->
+  <label for="dropdown2">Select an Option:</label>
+  <select id="dropdown2">
+    <option value="">--Select--</option>
+  </select>
+
+  <script>
+    const options = {
+      fruits: ["Apple", "Banana", "Cherry"],
+      vegetables: ["Carrot", "Broccoli", "Spinach"]
+    };
+
+    function updateSecondDropdown() {
+      const dropdown1 = document.getElementById("dropdown1");
+      const dropdown2 = document.getElementById("dropdown2");
+      const selectedCategory = dropdown1.value;
+
+      // Clear the second dropdown
+      dropdown2.innerHTML = "<option value=''>--Select--</option>";
+
+      // Populate the second dropdown with the corresponding options
+      if (selectedCategory && options[selectedCategory]) {
+        options[selectedCategory].forEach(option => {
+          const newOption = document.createElement("option");
+          newOption.value = option.toLowerCase();
+          newOption.textContent = option;
+          dropdown2.appendChild(newOption);
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>

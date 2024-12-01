@@ -10,9 +10,6 @@
 body{
   background-color: 	#71a6da;
 }
-
-
-
 nav{
    background-color: rgba(22, 15, 226, 0.861);
    color: #fff;
@@ -24,7 +21,7 @@ display: flex;
 padding:0px 12px;
 align-items: center;
 
-   font-weight: 400;
+  font-weight: 400;
    font-style: normal;
  
 }
@@ -61,9 +58,12 @@ nav ul li {
 //add
 .in{
   display: flex;
-  margin-top: 30px;
-  
-  
+
+
+}
+span.info{
+  margin-left: 10px;
+
 }
 .container{
 display: grid;
@@ -225,7 +225,7 @@ font-size: 1rem;
   margin-right: 10px; /* Add margin to the right to create space */
 }
 
- /*new button*/
+ /*new button
 
 #aiMode {
   background-color: #d63638;
@@ -242,6 +242,112 @@ font-size: 1rem;
 
 #aiMode:hover {
   background-color: #ff7426;
+}*/
+#aiMode {
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: Eina01, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 40px;
+  outline: none;
+  overflow: visible;
+  padding: 10px 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+  margin-right: 10px; /* Add margin to the right to create space */
+}
+
+@media (min-width: 500px) {
+  #aiMode {
+    padding: 10px 20px;
+  }
+}
+
+#aiMode:before,
+#aiMode:after {
+  border-radius: 80px;
+}
+
+#aiMode:before {
+  background-image: linear-gradient(92.83deg, #007bff 0, #0056b3 100%); /* Change gradient colors */
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+#aiMode:after {
+  background-color: initial;
+  background-image: linear-gradient(#003366 0, #001f33 100%); /* Change background colors */
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+#aiMode:hover:not(:disabled):before {
+  background: linear-gradient(92.83deg, rgb(0, 123, 255) 0%, rgb(0, 86, 179) 100%); /* Change hover gradient */
+}
+
+#aiMode:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
+
+#aiMode:active:not(:disabled) {
+  color: #ccc;
+}
+
+#aiMode:active:not(:disabled):before {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #007bff 0, #0056b3 100%); /* Change active gradient */
+}
+
+#aiMode:active:not(:disabled):after {
+  background-image: linear-gradient(#003366 0, #001f33 100%); /* Change active background colors */
+}
+
+#aiMode:disabled {
+  cursor: default;
+  opacity: .24;
 }
 @media screen and (max-width: 950px)
 {

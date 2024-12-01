@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="stylecon.css">
+    <script src="https://kit.fontawesome.com/aa7454d09f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        /* Style for the map container */
+        #map {
+            height: 300px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .success-message {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="contact-form">
+        <h4 class="sectionHeader">Contact Us</h4>
+        <h1 class="heading">Get In Touch!</h1>
+        <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos
+            inventore omnis aliquid rerum alias molestias.</p>
+        
+        <div class="contactForm">
+            <form id="contactForm" onsubmit="sendMessage(event)">
+                <h1 class="sub-heading">Need Support!</h1>
+                <p class="para para2">Contact us for a quote, help to join the team.</p>
+                <input type="text" id="name" class="input" placeholder="Your Name" required>
+                <input type="text" id="email" class="input" placeholder="Your Email" required>
+                <input type="text" id="subject" class="input" placeholder="Your Subject" required>
+                <textarea id="message" class="input" cols="30" rows="5" placeholder="Your message..." required></textarea>
+                <input type="submit" class="input submit" id="sendMessageButton" value="Send Message">
+                <p id="successMessage" class="success-message" style="display: none;">Message sent successfully!</p>
+            </form>
+
+            <!-- Map Container -->
+            <div id="map"></div>
+        </div>
+
+        <!-- Contact Methods Section -->
+        <div class="contactMethod">
+            <div class="method">
+                <i class="fa-solid fa-location-dot contactIcon"></i>
+                <article class="text">
+                    <h1 class="sub-heading">Location</h1>
+                    <p class="para">JIS University, Agarpara Campus, Kolkata</p>
+                </article>
+            </div>
+
+            <div class="method">
+                <i class="fa-solid fa-envelope contactIcon"></i>
+                <article class="text">
+                    <h1 class="sub-heading">Email</h1>
+                    <p class="para">Email: subhamdasrsgis@gmail.com</p>
+                </article>
+            </div>
+
+            <div class="method">
+                <i class="fa-solid fa-phone contactIcon"></i>
+                <article class="text">
+                    <h1 class="sub-heading">Phone</h1>
+                    <p class="para">+91 74279 52415</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaflet JavaScript for Map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([22.6761, 88.3783], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        L.marker([22.6761, 88.3783])
+            .addTo(map)
+            .bindPopup('<a href="https://maps.app.goo.gl/j8o38S7MYtQ7b4TJA" target="_blank">JIS University</a>')
+            .openPopup();
+
+        function sendMessage(event) {
+            event.preventDefault(); // Prevents the form from submitting normally
+
+            // Get form data
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            // Create the mailto link
+            const mailtoLink = `mailto:subhamdasrsgis@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+
+            // Open the mail client with the pre-filled details
+            window.location.href = mailtoLink;
+
+            // Display success message and clear the form
+            const successMessage = document.getElementById("successMessage");
+            successMessage.style.display = "block";
+            document.getElementById("contactForm").reset();
+        }
+    </script>
+</body>
+</html>
+
+
